@@ -27,14 +27,14 @@ public class CoffeeController {
         return new ResponseEntity<>(coffeeRepository.findById(id), HttpStatus.OK);
     }
     @GetMapping(value = "/coffee")
-    public ResponseEntity<List<Coffee>>findCoffeeByStrength( @RequestParam(name = "strength", required = false)Integer strength) {
+    public ResponseEntity<List<Coffee>>findCoffeeBy( @RequestParam(name = "strength", required = false)Integer strength, @RequestParam(name = "age", required = false)Integer age) {
         if (strength != null) {
             return new ResponseEntity<>(coffeeRepository.findByStrength(strength), HttpStatus.OK);
         }
+        if(age !=null){
+            return new ResponseEntity<>(coffeeRepository.findByAge(age), HttpStatus.OK);
+        }
         return new ResponseEntity<>(coffeeRepository.findAll(), HttpStatus.OK);
     }
-//    @GetMapping(value = "/coffee/strength")
-//    public ResponseEntity<List<Coffee>>findCoffeeByStrength( @RequestParam(name = "strength") Integer strength){
-//        return new ResponseEntity<>(coffeeRepository.findByStrength(strength), HttpStatus.OK);
-//    }
+
 }

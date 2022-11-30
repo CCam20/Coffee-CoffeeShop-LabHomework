@@ -40,20 +40,11 @@ public class CoffeeShopController {
         if(name !=null){
             return new ResponseEntity<>(coffeeShopRepository.findByName(name), HttpStatus.OK);
         }
-        if(name !=null && age!=null){
-            return new ResponseEntity<>(coffeeShopRepository.findByName(name),HttpStatus.OK);
-//            return new ResponseEntity<>(coffeeRepository.findByAge(age),HttpStatus.OK);
-        }
+
         return new ResponseEntity<>(coffeeShopRepository.findAll(), HttpStatus.OK);
 
     }
-//    public ResponseEntity<List<CoffeeShop>> findCoffeeShopBy(@RequestParam(name = "name", required = false)String name, @RequestParam()){
-//    if(name !=null){
-//        return new ResponseEntity<>(coffeeShopRepository.findByName(name), HttpStatus.OK);
-//    }
-//        return new ResponseEntity<>(coffeeShopRepository.findAll(), HttpStatus.OK);
-//
-//    }
+
 
 }
 
